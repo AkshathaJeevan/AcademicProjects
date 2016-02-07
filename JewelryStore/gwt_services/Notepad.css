@@ -1,0 +1,85 @@
+.container {
+background-color:#fdf8b8;
+}
+h1 {
+    color: #777;
+    margin: 40px 0 70px;
+    text-align: center;
+    }
+    
+.gwt-RichTextArea {
+    display: block;
+    background-color: white;
+    margin: 0 auto 0 auto;
+    width:  900px;
+    height:  400px;
+  
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    }
+    
+.gwt-Label {
+    display: inline;
+    margin-right: 20px;
+    }
+    
+    
+#log_panel { 
+    display: block;
+ 
+    margin: 150px auto 0 auto;
+    width:  500px;
+    height:  300px;
+    border: 2px solid #AAA !important;
+    text-align: center;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    } 
+    
+.blog_panel {
+    text-align: center;
+    }
+    
+.log_button {
+    margin: 50px 0 0 15px;
+    }          
+    
+.my_button {
+border-radius: 5px;
+padding:3px 1px;
+font-size:1em;
+background-color: #4683ea;
+color:white;
+min-width:100px;
+    }
+    
+.button_panel {
+    width: 700px;
+    display: block;
+    margin: 0 auto 0 auto;
+    text-align: right;
+    }
+    
+.upload_panel {
+	display: block;
+ 	background-color:white;
+    margin: 0px auto 0 auto;
+    width:  900px;
+    height:  80px;
+  	
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    } 
+    
+.format
+{
+
+padding:3px 10px;
+font-size:1em;
+margin: 1px 1px 1px;
+}
+
+

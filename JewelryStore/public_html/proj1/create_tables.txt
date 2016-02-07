@@ -1,0 +1,58 @@
+use jadrn019;
+
+
+drop table if exists inventories;
+drop table if exists categories;
+drop table if exists vendors;
+
+
+create table categories(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    category_name varchar(30) NOT NULL );
+    
+
+create table vendors(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    vendor_name varchar(50) NOT NULL );
+
+
+create table inventories(  
+    sku varchar(7) PRIMARY KEY NOT NULL,
+    vendor_id int NOT NULL,
+    category_id int NOT NULL,
+    manu_id varchar(50) NOT NULL,
+    description varchar(200) NOT NULL,
+    features varchar(200) NOT NULL,
+    cp DECIMAL(6,2) NOT NULL,
+    sp DECIMAL(6,2) NOT NULL,
+    product_image varchar(50) NOT NULL,
+    FOREIGN KEY(vendor_id) references vendors(id),
+    FOREIGN KEY(category_id) references categories(id)); 
+    
+
+    
+
+INSERT INTO vendors VALUES('','Anne Klein');
+INSERT INTO vendors VALUES('','Bvlgari');
+INSERT INTO vendors VALUES('','Buccellati');
+INSERT INTO vendors VALUES('','Chopard');
+INSERT INTO vendors VALUES('','Harry Winston');
+INSERT INTO vendors VALUES('','Mikimoto');
+INSERT INTO vendors VALUES('','Piaget');
+INSERT INTO vendors VALUES('','Tiffany');
+INSERT INTO vendors VALUES('','Van Cleef & Arpels');
+
+
+INSERT INTO categories VALUES('','Anklets');
+INSERT INTO categories VALUES('','Bangles');
+INSERT INTO categories VALUES('','Bracelets');
+INSERT INTO categories VALUES('','Earrings');
+INSERT INTO categories VALUES('','Necklaces');
+INSERT INTO categories VALUES('','Rings');
+INSERT INTO categories VALUES('','Pearls');
+
+
+
+
+
+

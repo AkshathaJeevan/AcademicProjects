@@ -1,0 +1,25 @@
+use jadrn019;
+
+drop table if exists merchandise_in;
+drop table if exists merchandise_out;
+drop table if exists on_hand;
+
+
+create table merchandise_in(
+    sku varchar(7) NOT NULL,
+    date varchar(100) NOT NULL,
+    quantity int NOT NULL ,
+    FOREIGN KEY(sku) references inventories(sku));
+    
+
+create table merchandise_out(
+    sku varchar(7) NOT NULL,
+    date varchar(100) NOT NULL,
+    quantity int NOT NULL ,
+    FOREIGN KEY(sku) references inventories(sku));
+    
+create table on_hand(
+    sku varchar(7) NOT NULL,
+    last_date_modified varchar(100) NOT NULL,
+    on_hand_quantity int NOT NULL ,
+    FOREIGN KEY(sku) references inventories(sku));

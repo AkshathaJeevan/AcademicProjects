@@ -1,0 +1,2 @@
+serviceClass: edu.sdsu.cs645.client.NotepadService
+path: 723C01E2E143C1EB5A8667B7BFFCCB34.gwt.rpc

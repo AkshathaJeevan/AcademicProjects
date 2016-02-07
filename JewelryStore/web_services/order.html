@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+   <head>
+      <title>Shopping Cart</title>
+      <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+      <meta http-equiv="Content-Style-Type" content="text/css" />
+      <link rel="stylesheet" type="text/css"  href="jquery-ui-1.10.4.custom/css/custom-theme/jquery-ui-1.10.4.custom.min.css" />
+      <link rel="stylesheet" type="text/css" href="/jadrn019/css/cart.css" />
+      <script type="text/javascript" src="/jquery/jquery.js"></script>
+      <script type="text/javascript" src="/jadrn019/js/mycart.js"></script> 
+      <script type="text/javascript" src="/jadrn019/js/ajax_get_lib.js"></script> 
+      <script type="text/javascript" src="jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>     
+      <script type="text/javascript" src="/jadrn019/js/shopping_cart.js"></script>
+      <script type="text/javascript" src="/jadrn019/js/order.js"></script>    
+   </head>
+   <body>
+      <div id="header">
+         <span id="cart_counter">Cart:&nbsp;<span id="count">0</span></span>
+         <h2>Jewelry Empire</h2>
+         <div id="navigation">
+            <ul>
+               <li><a href="proj3.html">Home</a></li>
+               <li><a href="product.html">Collections</a></li>
+               <li><a id="current" href="order.html">Shopping Cart</a></li>
+               <li><a href="about.html">Contact</a></li>
+               <span class="ui-widget" id="searching"><span ><input type="text" id="product_name" placeholder="Search">&nbsp;<input type="image" name="search" src="/~jadrn019/proj1/css/search.png" height="27px" width="30px" align='middle'  alt="Search By Category" id="search_product"/></span></span> 
+            </ul>
+         </div>
+      </div>
+      <div id="container">
+         <div class="ui-widget">
+            <div id="main" class="ui-widget-content">
+               <span id="guide"> Now you  can pick or edit one product at a time !</span><br /> 
+               &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pick Product: 
+               <select name="vendor" id="vendor">
+                  <option value="none">Vendor Name?</option>
+               </select>
+               <span class="error" id="card_type_error"></span>
+               <select name="category" id="category">
+                  <option value="none">Category Type?</option>
+               </select>
+               <select name="sku" id="sku">
+                  <option value="none">Product Name ?</option>
+               </select>
+               <div id="desc"></div>
+               <span id="qty_box">
+               Qty: <input type="text" id="qty" size="4" maxlength="4" />
+               </span>
+               <input type="button" value="Add to Cart" id="addButton" class="btn"/>
+               <input type="button" value="Change Quantity" id="quantityButton" /> 
+            </div>
+         </div>
+         <img src="/~jadrn019/proj1/css/load.gif" id="busy_wait" alt="busy wait icon" />
+         <div id="cart"></div>
+         <div id="dialog-modal" class="widget-dialog-container" title="Complete Your Order">
+            <form name="order" method="post" action="" onsubmit="return validateForm();">
+               <fieldset id="cardinfo">
+                  <legend>Card Information</legend>
+                  <label for="card_type">Card Type:</label>
+                  <select name="card_type" id="card_type">
+                     <option value="-1" selected>&nbsp;Select Card Type &nbsp;&nbsp;</option>
+                     <option value="Visa">Visa</option>
+                     <option value="Mastercard">MasterCard</option>
+                     <option value="American Express">American Express</option>
+                  </select>
+                  <span class="error" id="card_type_error"></span>  
+                  &nbsp;&nbsp;&nbsp;Card Number:
+                  <input type="text" class="cardno" size="16" maxlength="16" name="card_no"  id="card_no"/>
+                  &nbsp;&nbsp;&nbsp;Expiration Date:
+                  <select id="daydropdown" name="day">
+                  </select>
+                  <select id="monthdropdown" name="month">
+                  </select>
+                  <select id="yeardropdown" name="year">
+                  </select>
+               </fieldset>
+               <fieldset id="billing">
+                  <legend >Billing Address</legend>
+                  <label for="b_fname">FirstName:</label>		
+                  <input type="text" name="b_fname" size="30" id="b_fname"/>
+                  <span class="error" id="bfname_error"></span> <br />
+                  <label for="b_lname">LastName:</label>
+                  <input type="text" name="b_lname" size="30" id="b_lname"  />
+                  <span class="error" id="blname_error" ></span><br />
+                  <label for="b_address1">Address :</label>
+                  <input type="text" name="b_address1" size="40" id="b_address1"  />
+                  <span class="error" id="b_address_error"></span><br />
+                  <label for="b_address2">Address :</label>
+                  <input type="text" name="b_address2" size="40" id="b_address2" /><br />
+                  <label for="b_city">City:</label>				
+                  <input type="text" name="b_city" size="20" id="b_city"/>
+                  <span class="error" id="b_city_error" ></span><br />
+                  <label for="b_statesdropdown">State:</label>		
+                  <select name ="b_statesdropdown" id="b_statesdropdown">
+                  </select> <br/>
+                  <label for="b_zip">Zipcode:</label> 
+                  <input type="text" name="b_zip" size="5" maxlength="5" id="b_zip" />
+                  <span class="error" id="b_zip_error" ></span><br /> 
+                  <label for="b_phone">Phone:</label>
+                  <input type="text" name="b_phone" id="b_phone" size="10" maxlength="10" />
+                  <span class="error" id="phone_error"></span> <br />    
+               </fieldset>
+               <fieldset id="shipping">
+                  <legend >Shipping Address</legend>
+                  <label for="s_fname">FirstName:</label>		
+                  <input type="text" name="s_fname" size="30" id="s_fname"/>
+                  <span class="error" id="sfname_error"></span> <br />
+                  <label for="s_lname">LastName:</label>
+                  <input type="text" name="s_lname" size="30" id="s_lname"  />
+                  <span class="error" id="slname_error" ></span><br />
+                  <label for="s_address1">Address :</label>
+                  <input type="text" name="s_address1" size="40" id="s_address1"  />
+                  <span class="error" id="b_address_error"></span><br />
+                  <label for="address2">Address :</label>
+                  <input type="text" name="s_address2" size="40" id="s_address2" /><br />
+                  <label for="s_city">City:</label>				
+                  <input type="text" name="s_city" size="20" id="s_city"/>
+                  <span class="error" id="s_city_error" ></span><br />
+                  <label for="s_statesdropdown">State:</label>		
+                  <select name="s_statesdropdown" id="s_statesdropdown">
+                  </select> <br/>
+                  <label for="s_zip">Zipcode:</label> 
+                  <input type="text" name="s_zip" size="5" maxlength="5" id="s_zip" />
+                  <span class="error" id="s_zip_error" ></span><br /> 
+                  <label for="s_phone">Phone:</label>
+                  <input type="text" name="s_phone" id="s_phone" size="10" maxlength="10" />
+                  <span class="error" id="s_phone_error"></span> <br />    
+               </fieldset>
+               <div id="same_address">
+                  <input type="checkbox" id="same_addr" value="same_addr" />Same Details for Shipping ? 
+                  <span id="buttons"><input type="reset" class="ui-button" value="Clear Form">
+                  <input type="submit" class="ui-button" value="Preview My Order"/></span><span id="errMsg">&nbsp;</span>
+               </div>
+            </form>
+         </div>
+         <div id="dialog-modal1" class="widget-dialog-container" title="Preview Your Order">
+            <div id="preview_order"> </div>
+            <form name="preview" method="post" action="/jadrn019/servlet/PlaceOrder" >
+               <div id="param"></div>
+               <span id="buttons"><input id="cancelling" type="button" class="ui-button" value="Cancel Order">
+               <input type="submit" class="ui-button" value="Confirm Order"/></span>
+            </form>
+         </div>
+         <span id="cart_counter">My Cart:&nbsp;<span id="count">0</span></span>
+         <input type="button" value="CheckOut" id="order_button" />
+      </div>
+      <script type="text/javascript">
+         window.onload= populatedropdown("daydropdown", "monthdropdown", "yeardropdown","b_statesdropdown","s_statesdropdown");
+      </script>
+   </body>
+</html>
+</body>
+</html>

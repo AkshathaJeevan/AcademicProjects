@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+   <head>
+      <title>Products Page</title>
+      <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+      <link rel="stylesheet" type="text/css" href="/jadrn019/css/mycss.css" />
+      <script type="text/javascript" src="/jquery/jquery.js"></script>
+      <script type="text/javascript" src="/jadrn019/js/ajax_get_lib.js"></script>
+      <script type="text/javascript" src="/jadrn019/js/shopping_cart.js"></script>
+      <script type="text/javascript" src="jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>     
+      <link rel="stylesheet" type="text/css"  href="jquery-ui-1.10.4.custom/css/custom-theme/jquery-ui-1.10.4.custom.min.css" />
+      <script type="text/javascript" src="/jadrn019/js/search.js"></script>
+   </head>
+   <body>
+      <div id="header">
+         <a href="/jadrn019/order.html">
+         <span id="cart_counter"> Cart:&nbsp;<span id="count">0</span></span> 
+         </a>
+         <h2>Jewelry Empire</h2>
+         <div id="navigation">
+            <ul>
+               <li><a href="proj3.html">Home</a></li>
+               <li><a href="product.html">Collections</a></li>
+               <li><a href="order.html">Shopping Cart</a></li>
+               <li><a href="about.html">Contact</a></li>
+               <span class="ui-widget" id="searching"><span ><input type="text" id="product_name" placeholder="Search">&nbsp;<input type="image" name="search" src="/~jadrn019/proj1/css/search.png" height="27px" width="30px" align='middle'  alt="Search By Category" id="search_product"/></span></span> 
+            </ul>
+         </div>
+      </div>
+      <div>
+         <div id="main_block">
+            <span id="searchlist"></span><br/>
+            <span id="emptylist">No products found !!!</span><br/>
+            <div id="content">
+               <img src="/~jadrn019/proj1/css/load.gif" id="busy_wait" alt="busy wait icon" /> 
+            </div>
+         </div>
+      </div>
+      <div id="dialog-modal" class="widget-dialog-container" title="View Product Details">
+         <div id="dialog_content"></div>
+      </div>
+   </body>
+</html>

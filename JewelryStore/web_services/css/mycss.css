@@ -1,0 +1,454 @@
+
+
+* 
+{
+    margin: 0; padding: 0;
+}
+
+html, body
+{
+    height: 97%;
+    
+}    
+
+body
+{
+    background-color: white;
+    color:#303030;
+    background-size:100% 100%;
+    font: sans-serif;
+    min-width: 1400px;
+}
+
+h1,h2 {
+    padding: 10px 10px 0;
+    padding-left: 13px;
+    text-align: center;
+    margin-bottom: 11px;
+    font-size: 2.2em;
+    font-family: normal normal normal 48px/1.1em 'Times New Roman',times,serif;
+}
+
+
+ 
+p {
+    padding: 10px;
+}
+
+
+#navigation ul 
+{
+    text-align: right;
+    margin-bottom: 25px;
+}
+    
+#navigation li 
+{
+margin-top: 20px;
+    display: inline;
+}
+
+#navigation a
+{
+
+   text-decoration: none;
+    padding: 15px 25px 5px 10px;
+    margin-top: 14px;
+    font-weight: bold;
+   color:#776C6C;
+
+}                 
+
+#navigation a:hover 
+{
+  font-weight:bolder;
+    color: #E11A46;
+}
+
+#tag_line
+{
+	padding-left:250px;
+}
+
+h3
+{
+padding-left:50px;
+text-decoration: underline;
+}
+
+h4
+{
+	padding-left: 80px;
+}
+
+#content
+{
+ color: #67473B;
+margin-left:350px;
+        width: 1000px;
+	padding-left:15px;
+}
+
+#listing1
+{
+color: #4D4849;
+float:left;
+}
+div #price
+{
+font-size:1.1em;
+padding-left:3px;
+color:red;
+}
+
+p input
+{
+        color: #67473B;
+	margin: 10px 0px;
+	font-size:.8em;
+}
+
+.product_display
+{
+        opacity: .93;
+        background-color: #CAC9C3;
+	text-align:left;
+	 float: left;
+  	padding:20px;
+        width: 200px;
+        margin:15px;
+	
+
+}
+
+
+.price
+{
+font-size: .9em;
+color: red;
+padding-left:10px;
+}
+
+.product_display h3, .details
+{
+padding-left:10px;
+}
+
+.details
+{
+font-size: .9em;
+}
+
+.heading
+{
+ 
+    background-color: rgb(196, 133, 203);
+    color:rgb(31, 24, 7);
+    font-size: 1em;
+    padding: 5px 25px;
+    min-width: 60px;
+}
+
+.product_display img
+{
+   
+   margin: 5px 0px;
+}
+
+
+.infoButton,.addButton, .deleteButton, .changeButton
+{
+background-color:white;
+width: 28px;
+height: 28px;
+margin-left:10px;
+padding: 0px 2px;
+}
+
+.deleteButton
+{
+width: 33px;
+height: 33px;
+}
+
+.infoButton
+{
+font-weight: bold;
+width: 80px;
+}
+
+.qty
+{
+margin-left:10px;
+ padding-left:10px;
+ border-radius: 5px;
+ font-size: .9em;
+ margin-top: 2px;
+}
+
+.msg
+{
+display:none;
+border-radius: 25px;
+padding: 6px 10px;
+background-color:white;
+font-size: .9em;
+color:red;
+margin-left:20px;
+opacity: 1;
+box-shadow: 10px 10px 5px #888888;
+}
+
+#view_cart, .buttons
+{
+
+color:white;
+background-color:rgb(126, 115, 117);
+ padding: 100px 10px;
+font-size: .9em;
+ border: 1px solid white;
+}
+.buttons
+ {
+	  margin-top: 1px;
+  margin-left: 10px;
+  margin-right: 1000px;
+  font-size: .9em;
+  padding: 2px 8px;
+}
+
+.buttons:hover
+{
+border: 2px solid  #E11A46;
+ color:  #E11A46;
+background-color:white;
+}
+#cart_counter
+{
+padding: 8px 10px;
+font-size:.9em;
+width: 70px;
+position: fixed;
+ top: 3px;
+ left:1280px;
+ background-color:red;
+
+}
+
+
+#left_block
+{
+   float:left;
+   margin-top:30px;
+   margin-left:20px;  
+   width:150px;
+}
+
+#view_cart
+{
+ border: 2px outset #E11A46;
+height: 18px;
+text-decoration: none;
+padding: 10px 15px;
+font-size: 1em;
+font-weight: bold;
+width: 86px; 
+display:none;
+
+   position: fixed;
+    top: 208px;
+    left: 1280px;
+
+}
+
+#count
+{
+font-size:1.3em;
+color:white;
+width: 50px;
+padding-left:0px;
+}
+
+#guide
+{
+  color:red;
+font-size: .8em;
+padding: 0px 300px;
+}
+
+#chocobox
+{
+ padding-left: 50px;
+background-color: red;
+}
+
+
+#left_block #listing .ven_list_button ,#left_block #listing .cat_list_button,#main_block #listing1 .ven_list_button ,#main_block #listing1 .cat_list_button
+{
+	font-size: .8em;
+	width: 160px;
+	background-color:white;
+	color: #4D4849;
+	
+}
+
+.buttons,#left_block #listing .ven_list_button ,#left_block #listing .cat_list_button
+{
+  opacity:.93;
+}
+
+p
+{
+margin-bottom: 20px;
+text-align: center;
+}
+
+.avail_status
+{
+     
+	color: blue;
+	font-size: .9em;
+       font-weight: bolder;
+}
+
+#dialog_content table .addButton
+{
+margin-top: 0px;
+width: 75px;
+height: 28px;
+}
+
+.dialog_avail_status
+{
+ margin-left: 10px;
+ margin-bottom: 30px;
+  padding: 2px 20px;
+   color: blue;
+       
+        font-size: .9em;
+       font-weight: bolder;
+}
+    
+h1,h2 {
+    padding: 10px 10px 0; 
+    text-align: center;
+    margin-bottom: 11px;
+    font-size:2.2em;
+       font-family: normal normal normal 48px/1.1em 'Times New Roman',times,serif;
+	}
+
+p {
+    padding:10px;
+    } 
+body:before {
+    content:"";
+    height:100%;
+    float:left;
+    width:0;
+    margin-top:-32767px;
+}
+
+#wrapper:after,  
+#content:after { 
+    clear:both;
+    content:"";
+    display:block;
+    height:1%;
+    font-size:0;
+}
+ 
+#header {
+   padding-left:5px;
+    min-width: 1000px;
+    height: 100px;
+    position: relative;
+    z-index: 1; 
+    border-bottom: 1px solid #695B5E;;
+    background-color: white;
+    color: #695B5E;
+}
+
+
+#busy_wait
+{
+ width: 50px;
+height: 50px;
+  padding: 100px 420px;
+}
+
+#product_name
+{
+ width: 170px;
+  border: 1px solid #aaaaaa;
+  padding: 0 5px 0 5px;
+  height: 28px;
+  line-height: 28px;
+  background: transparent;
+
+}
+
+#emptylist, #searchlist
+{
+ margin-left: 0px;
+}
+
+
+.ven-cat
+{
+ font-size: 1.2em;
+ color:black;
+}
+
+.makewhite, #emptylist, #searchlist
+{
+ 
+ color: rgb(121, 114, 114);
+ font-size:1em;
+}
+
+#searchlist
+{
+ margin-left: 30px;
+  color:#E11A46;
+}
+
+#pickedproducts
+{
+ color: #E11A46;
+ font-size: bolder;
+ margin-left: 10px;
+}
+
+.picked
+{
+ color: #B4B3B3;
+ font-size: .9em;
+}
+
+
+.product_display img:hover {
+    cursor: pointer;
+    height:180px;
+    width: 180px;
+    transform:scale(2.5);
+    -ms-transform:scale(1.5); /* IE 9 */
+    -moz-transform:scale(1.5); /* Firefox */
+    -webkit-transform:scale(1.5); /* Safari and Chrome */
+    -o-transform:scale(1.5); /* Opera */
+}
+
+#complete
+{
+ margin: 0 auto;
+}
+
+
+#widget-dialog-container{
+    font-family:"diavlo";
+}
+
+#widget-dialog-container span{
+    color:#006600;
+    font-weight:bold;
+    font-style: normal;
+}

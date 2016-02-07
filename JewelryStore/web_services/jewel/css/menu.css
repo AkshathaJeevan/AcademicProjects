@@ -1,0 +1,319 @@
+* 
+{
+    margin: 0; padding: 0;
+}
+
+html, body
+{
+    height: 90%;
+    min-width: 900px;
+    color: #67463B;
+}    
+
+body
+{
+width: 90%;
+background-color : rgba(11, 146, 186, 0.24);
+background-repeat: no-repeat;
+background-attachment:fixed;
+font-family:arial;
+	
+}
+label
+{
+	font-size:.9em;
+}
+
+input:focus, textarea:focus, select:focus
+{
+  border: 2px solid blue;
+}
+p
+{
+padding: 10px 50px 7px 30px; 
+font-size: 1.1em;
+}
+
+#content
+{
+	padding-left:40px;
+}
+
+
+#navigation
+{
+padding-left: 20px;
+width: 600px;
+}
+#navigation ul 
+{
+    text-align: center;
+    margin-bottom: 15px;
+}
+    
+#navigation li 
+{
+    display: inline;
+}
+
+#navigation a
+{
+   font-size:1em;
+   text-decoration: none;
+   color:green;
+   background-color:white;
+   padding: 0px 10px;
+   margin-left:1px;
+   border: 2px outset white;
+}                 
+
+h2
+{
+	font-size: 1.3em;
+	margin-left: 325px;
+}
+#navigation a:hover, #navigation #active_menu:hover 
+{
+    border: 2px outset blue;
+    color:  blue;
+    background-color: white;
+
+}
+form
+{
+	opacity: 1;
+	margin-left:10px;
+	width: 100px;
+	padding-left: 50px;
+}
+
+legend
+{
+	padding: 2px 15px;
+	border: 2px blue;
+	background-color:white;
+	color:blue;
+	margin-left:100px;
+	
+}
+
+fieldset
+{
+	margin-top:-15px;
+	margin-bottom: 20px;
+	width:540px;
+	padding: 30px 10px;
+	border: 2px solid blue;
+}
+
+#navigation a:hover, #navigation #active_menu:hover
+{
+    border: 2px  blue; 
+    color:  blue;
+    background-color: white;
+
+}
+
+
+#lbl_vendor, #lbl_manu_id, #lbl_date
+{
+	text-align: right;
+}
+
+form
+{
+	margin-left:10px;
+        width: 690px;
+        padding-left: 20px;
+	opacity:1;
+	font-size:1.1em;
+}
+
+#prod_image
+{
+padding-left:20px;
+}
+
+#btn input
+{
+ margin-left:0px;
+ margin-top:10px;
+ font-size: .8em;
+ padding: 1px 5px;
+ border: 2px outset green;
+ border-radius: 0px;
+ background-color :rgba(63, 177, 192, 0.53)
+}
+
+#lookup
+{
+height: 28px;
+width: 30px;
+margin-top: 0px;
+padding-top:0px;
+border: 0px solid black;
+visibility:hidden;
+}
+
+form fieldset
+{
+   color: blue;
+   
+   padding: 25px 600px;
+   padding-left:10px;
+   padding-right:400px;
+   padding-bottom:100px;
+   border: 4px outset blue;
+   border-radius: 0px;
+}
+
+#out
+{
+   border: 4px outset  black;
+   background-color:rgba(166, 195, 124, 0.55);
+}
+
+#errMsg
+{
+	color:red;
+	font-size: .8em;
+	margin-left: 15px;
+	font-weight: bolder;
+}
+
+input
+{
+	border: 2px inset #C0C0C0;
+	margin-left: 10px;
+	padding-left:3px;
+ 	font-size: .6em;
+	font-weight:bolder;
+ 	padding: 1px 5px;
+ 	border-radius: 0px;
+}
+
+
+#prod_id,#vendor, #category, textarea
+{
+	 font-size: .7em;
+	font-weight: bolder;
+ 	padding: 1px 7px;
+ 	border-radius: 0px;
+}
+
+
+#category
+{
+        padding-right:10px;
+}
+
+#add_table
+{
+margin-left:182px;
+}
+
+#add_table td
+{
+padding-left: 20px;
+}
+
+
+.details
+{
+   color:blue;
+   font-size: .9em;
+}
+
+#prod_img
+{
+  margin-left: 50px;
+}
+
+#sku
+{
+  padding: 1px 5px;
+}
+
+#content
+{
+font-size: 1.2em;
+text-align: center;
+}
+
+#content #lookup
+{
+visibility: visible;
+}
+
+#search
+{
+height: 28px;
+width: 30px;
+border: 0px solid red;
+}
+
+#data
+{
+	opacity:1;
+	text-align:left;
+	padding: 5px 220px;
+	width: 750px;
+	font-size: .9em;
+}
+
+#data td
+{
+	padding-left:10px;
+}
+
+.db_values
+{
+	color: blue;
+	font-size: .9em;
+}
+
+#data fieldset
+{
+	margin-top:5px;
+	border-radius: 0px;
+	border: 2px outset  red;
+}
+
+h3
+{
+font-weight: bolder;
+font-size: 1em;
+text-align: right;
+padding: 10px 10px;
+color: #800029;
+
+}
+
+
+#content input, #content select
+{
+	font-weight: bolder;
+	padding: 2px 6px;
+	font-size: .7em;
+	border-radius: 0px;
+}
+
+
+#edit label
+{
+	text-align: right;
+}
+#vendor
+{
+	width: 160px;
+}
+#category
+{
+	width: 180px;
+}
+
+#prod_id, #date
+{
+	width: 100px;
+}
+
