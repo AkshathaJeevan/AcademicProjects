@@ -1,0 +1,132 @@
+
+
+(def RentTab (seesaw/border-panel
+                  :vgap 20
+                  :east (seesaw/border-panel   ====> change east to west
+
+
+
+:south (seesaw/left-right-split   ==========> change south to north
+  (seesaw/horizontal-panel :border "Add a copy "
+
+ ;;text box definations for add movie grid panel
+ (def AddMovieNameField      (seesaw/text :text ""))
+ (def AddMovieIDField        (seesaw/text :text ""))
+ (def AddMovieQuantityField  (seesaw/text :text ""))
+ (def AddMoviePriceField     (seesaw/text :text ""))
+ (def AddCopyField           (seesaw/text :text "" :columns 15))
+ (def ChangeMoviePriceField  (seesaw/text :text ""))
+ 
+   
+ (def DelMovieNameField      (seesaw/text :text ""))
+ (def DelMovieQuantityField  (seesaw/text :text ""))
+ 
+ (def RentersNameField       (seesaw/text :text ""))
+ (def ReturnersNameField     (seesaw/text :text ""))
+ (def DueDateField           (seesaw/text :text ""))
+ 
+
+  (def MovieTable (seesaw/table
+                  :model[
+                      :columns [{:key :name, :text "name"} {:key :id, :text "ID"} {:key :qty, :text "Quantity"} {:key :price, :text "Price"} {:key :rented, :text "rented"}]
+                      :rows   @GlobalMovieString
+                      :selection-mode :single
+                   ]
+
+                  )
+   )
+
+   ;; This function is for RentGrid, the  and Name in the Rent a move Tab.
+ (def RentTab (seesaw/border-panel
+                  :vgap 20
+                  :east (seesaw/border-panel
+                       :north (seesaw/vertical-panel :border "Rent Movie "
+                                                     :items["Renters Name"   RentersNameField
+                                                             "Due Date"      DueDateField
+                                                             (seesaw/button :text "Rent Selected Movie" :foreground :red :font "ARIAL-BOLD-14"
+                                                              :listen [:action  (fn [e] (RentMovieFunction[]))])
+                                                             ])
+                         
+                       :south  (seesaw/vertical-panel :border " Return Movie"
+                                                      :items ["Renters Name"      ReturnersNameField
+                                                              (seesaw/button :text "Return Selected Movie" :foreground :red :font "ARIAL-BOLD-14"
+                                                                             :listen [:action  (fn [e] (ReturnMovieFunction[]))])
+                                                              ])
+                       :east ""
+                       :center (seesaw/vertical-panel :border " Change Price"
+                                                      :items ["Enter new Price"    ChangeMoviePriceField
+                                                              (seesaw/button :text "Apply new Price" :foreground :red :font "ARIAL-BOLD-14"
+                                                                             :listen [:action  (fn [e] (ChangeMoviePrice[]))] )
+                                                              ])
+                       :vgap 10
+                       :hgap 50
+                       )
+
+                  :center  (seesaw/scrollable MovieTable)
+
+                  :south (seesaw/left-right-split
+
+                           (seesaw/horizontal-panel :border "Add a copy "
+                                                     :items["No of copies" AddCopyField
+                                                             (seesaw/button :text "Add copy" :foreground :red :font "ARIAL-BOLD-14" :listen [:action  (fn [e] (AddCopy[]))])
+                                                           ] )
+                           (seesaw/horizontal-panel :border "Delete a movie "
+                                                     :items["No of copies" DelMovieQuantityField
+                                                             (seesaw/button :text "Delete copy" :foreground :red :font "ARIAL-BOLD-14"
+                                                                            :listen [:action  (fn [e] (DeleteFromDataBase[]))])
+                                                             ])
+                        )
+               )
+   )
+
+
+ ;; This is the main UI tab. This will have thesetabs:
+ ;; Rent a Movie : user can rent a movie from here
+ ;; Manage : this is for the store owner to add and remove movies
+ (def MainUITab (seesaw/tabbed-panel
+              :id :tabs
+              :placement :top
+              :tabs [
+                  ;;   {:title "Rent a Movie"
+                    ;;  :content RentBorder}
+                     {:title "Available Movies to rent"
+                      :content RentTab}
+
+                     {:title "Add a new movie"
+                      :content AddMovieTab}
+                     ]
+    )
+   )
+
+ (def window (seesaw/frame
+               :title "Online movie and DVD Store"
+               :content MainUITab
+               :width 800
+               :height 480
+               :on-close :exit)
+   )
+
+
+ (defn -main [& args]
+     (seesaw/show! window) 
+    
+
+   )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

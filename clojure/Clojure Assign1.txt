@@ -1,0 +1,474 @@
+
+1."We shall contemplate truth by testing reality, via equality." (= __ true)\
+
+\b  (= true true)\
+
+\b0 \
+2. "To understand reality, we must compare our expectations against reality." (= __ (+ 1 1)) \
+
+\b (= 2 (+ 1 1))
+\b0 \
+\
+3. "You can test equality of many things" (= (+ 3 5) __ (+ 2 __))\
+
+\b  (= (+ 3 5) 8 (+ 2 6))
+\b0 \
+\
+4. "Some things may appear different, but be the same" (= 2 2/1 __)\
+
+\b (= 2 2/1 4/2) 
+\b0 \
+\
+5. "You cannot generally float to heavens of integers" (= __ (= 2 2.0))\
+
+\b ((= false (= 2 2.0))
+\b0 \
+\
+6. "But a looser equality is also possible"(== 3.0 3 __)\
+
+\b (== 3.0 3 3/1) 
+\b0 \
+\
+7. "When things cannot be equal, they must be different" (not= :fill-in-the-blank __)\
+
+\b (not= :fill-in-the-blank 1) 
+\b0 \
+\
+8. "Lists can be expressed by function or a quoted form" (= '(__ __ __ __ __) (list 1 2 3 4 5))\
+
+\b (= '( 1 2 3 4 5 ) (list 1 2 3 4 5))
+\b0 \
+\
+9. "They are Clojure seqs (sequences), so they allow access to the first" (= __ (first '(2 3 4 5))) \
+
+\b  (= 2 (first '(2 3 4 5)))
+\b0 \
+\
+10. "As well as the rest" (= __ (rest '(2 3 4 5)))\
+
+\b = '(3 4 5 )(rest '(2 3 4 5)))\
+\
+11.
+\b0 "The rest when nothing is left is empty" (= __ (rest '(10)))\
+
+\b (= '() (rest '(10)))\
+\
+12. 
+\b0 "And construction by adding an element to the front is simple" (= __ (cons :a '(:b :c :d :e)))\
+
+\b (= '(:a :b :c :d :e)(cons :a '(:b :c :d :e)))\
+\
+13.
+\b0 "Conjoining an element to a list can be done in the reverse order" (= __ (conj '(:a :b :c :d :e) 0))\
+
+\b (= '(0 :a :b :c :d :e)(conj '(:a :b :c :d :e) 0))\
+\
+14. 
+\b0 "You can use a list like a stack to get the first element" (= __ (peek '(:a :b :c :d :e)))\
+
+\b (= :a (peek '(:a :b :c :d :e)))\
+\
+15.
+\b0 "Or the others" (= __ (pop '(:a :b :c :d :e)))\
+
+\b (= '(:b :c :d :e) (pop '(:a :b :c :d :e)))\
+\
+16.
+\b0 "But watch out if you try to pop nothing" (= __ (try\
+\pard\pardeftab720\partightenfactor0
+\cf0           (pop '())\
+          (catch IllegalStateException e "No dice!")))\
+
+\b (= "No dice!" (try\
+          (pop '())\
+          (catch IllegalStateException e "No dice!")))\
+\
+17. 
+\b0 "The rest of nothing isn't so strict" (= __ (try\
+          (rest '())\
+          (catch IllegalStateException e "No dice!")))
+\b \
+(= '() (try\
+          (rest '())\
+          (catch IllegalStateException e "No dice!")))\
+\
+
+\b0 18. "You can use vectors in clojure to create an 'Array' like structure" (= __ (count [42]))\
+
+\b (= 1 (count [42]))\
+\
+
+\b0 19."You can create a vector in several ways" (= __ (vec nil))\
+
+\b (= [] (vec nil))\
+\
+
+\b0 20. "And populate it in either of these ways" (= __ (vec '(1)))
+\b \
+(= [1](vec '(1)))\
+\
+
+\b0 21. "There is another way as well" (= __ (vector nil))\
+
+\b (= [nil](vector nil))\
+\
+
+\b0 22. "But you can populate it with any number of elements at once" (= [1 __] (vec '(1 2)))\
+
+\b (= [1 2] (vec '(1 2)))\
+\
+
+\b0 23."And add to it as well" (= __ (conj (vec nil) 333))
+\b \
+(= [333](conj (vec nil) 333))\
+\
+
+\b0 24."You can get the first element of a vector like so" (= __ (first [:peanut :butter :and :jelly]))\
+
+\b (= :peanut (first [:peanut :butter :and :jelly]))\
+\
+
+\b0 25."And the last in a similar fashion" (= __ (last [:peanut :butter :and :jelly]))\
+
+\b (= :jelly (last [:peanut :butter :and :jelly]))\
+\
+
+\b0 26. "Or any index if you wish" (= __ (nth [:peanut :butter :and :jelly] 3))\
+
+\b (= :jelly (nth [:peanut :butter :and :jelly] 3))\
+\
+
+\b0 27.   "You can also slice a vector" (= __ (subvec [:peanut :butter :and :jelly] 1 3))\
+
+\b (= [ :butter :and ](subvec [:peanut :butter :and :jelly] 1 3))\
+\
+
+\b0 28. "Equality with collections is in terms of values" (= (list 1 2 3) (vector 1 2 __))\
+
+\b (= (list 1 2 3) (vector 1 2 3))\
+\
+
+\b0 29. "You can create a set in two ways" (= #\{\} (set __))\
+
+\b (= #\{\} (set nil))\
+\
+
+\b0 30. "They are another important data structure in clojure" (= __ (count #\{1 2 3\}))
+\b \
+(= 3(count #\{1 2 3\}))\
+\
+
+\b0 31."Remember that a set is a 'set'" (= __ (set '(1 1 2 2 3 3 4 4 5 5)))\
+
+\b (= #\{1 2 3 4 5\} (set '(1 1 2 2 3 3 4 4 5 5)))\
+\
+
+\b0 32. "You can ask clojure for the union of two sets" (= __ (clojure.set/union #\{1 2 3 4\} #\{2 3 5\}))\
+
+\b (= #\{1 2 3 4 5\} (clojure.set/union #\{1 2 3 4\} #\{2 3 5\}))\
+\
+
+\b0 33. "And also the intersection" (= __ (clojure.set/intersection #\{1 2 3 4\} #\{2 3 5\}))
+\b \
+(= #\{2 3\}(clojure.set/intersection #\{1 2 3 4\} #\{2 3 5\}))\
+\
+
+\b0 34. "But don't forget about the difference" (= __ (clojure.set/difference #\{1 2 3 4 5\} #\{2 3 5\}))\
+
+\b (= #\{1 4\}(clojure.set/difference #\{1 2 3 4 5\} #\{2 3 5\}))\
+\
+
+\b0 35. "There are two ways to create maps" (= __ (hash-map))\
+
+\b (= \{\}(hash-map))\
+\
+
+\b0 36."Maps in clojure associate keys with values" (= __ (count (hash-map)))\
+
+\b (= 0 (count (hash-map)))\
+\
+
+\b0 37. "A value must be supplied for each key" (= \{:a 1\} (hash-map :a __))\
+
+\b (= \{:a 1\} (hash-map :a 1))\
+\
+
+\b0 38. "The size is the number of entries" (= __ (count \{:a 1 :b 2\}))\
+
+\b (= 2 (count \{:a 1 :b 2\}))\
+\
+
+\b0 39."You can look up the value for a given key" (= __ (get \{:a 1 :b 2\} :b))
+\b \
+(= 2 (get \{:a 1 :b 2\} :b))\
+\
+
+\b0 40."Maps can be used as lookup functions" (= __ (\{:a 1 :b 2\} :a))\
+
+\b (= 1 (\{:a 1 :b 2\} :a))\
+\
+
+\b0 41."And so can keywords" (= __ (:a \{:a 1 :b 2\}))\
+
+\b  (= 1 (:a \{:a 1 :b 2\}))\
+\
+
+\b0 42."But map keys need not be keywords" (= __ (\{2006 "Torino" 2010 "Vancouver" 2014 "Sochi"\} 2010))
+\b \
+(= "Vancouver" (\{2006 "Torino" 2010 "Vancouver" 2014 "Sochi"\} 2010))\
+\
+
+\b0 43."You may not be able to find an entry for a key" (= __ (get \{:a 1 :b 2\} :c))\
+
+\b (= nil (get \{:a 1 :b 2\} :c))
+\b0 \
+\
+44. \'93But you can provide your own default" (= __ (get \{:a 1 :b 2\} :c :key-not-found))\
+
+\b (= :key-not-found (get \{:a 1 :b 2\} :c :key-not-found))
+\b0 \
+\
+45. "You can find out if a key is present" (= __ (contains? \{:a nil :b nil\} :b))\
+
+\b (= true (contains? \{:a nil :b nil\} :b))
+\b0 \
+\
+46. "Or if it is missing" (= __ (contains? \{:a nil :b nil\} :c))\
+
+\b (= false (contains? \{:a nil :b nil\} :c))\
+\
+47.
+\b0 "Maps are immutable, but you can create a new, 'changed' version" (= \{1 "January" 2 __\} (assoc \{1 "January" \} 2 "February"))\
+
+\b (= \{1 "January" 2 "February"\} (assoc \{1 "January" \} 2 "February"))\
+
+\b0 \
+48."You can also 'remove' an entry" (= \{__ __\} (dissoc \{1 "January" 2 "February"\} 2))\
+
+\b (= \{1 "January"\} (dissoc \{1 "January" 2 "February"\} 2))\
+
+\b0 \
+49."Often you will need to get the keys (which will be in hash order)"(= (list __ __ __)\
+     (sort (keys \{2006 "Torino" 2010 "Vancouver" 2014 "Sochi"\})))
+\b \
+(= (list 2006 2010 2014)\
+     (sort (keys \{2006 "Torino" 2010 "Vancouver" 2014 "Sochi"\})))\
+
+\b0 \
+50. "Or the values" (= (list "Sochi" "Torino" __)\
+     (sort (vals \{2006 "Torino" 2010 "Vancouver" 2014 "Sochi"\})))\
+
+\b (= (list "Sochi" "Torino" "Vancouver")\
+     (sort (vals \{2006 "Torino" 2010 "Vancouver" 2014 "Sochi"\})))\
+\
+
+\b0 51.(defn multiply-by-ten [n] (* 10 n))\
+\
+52.(defn square [n] (* n n))\
+\
+53. \'93Functions are often defined before they are used" (= __ (multiply-by-ten 2))\
+
+\b (= (* 10 2 ) (multiply-by-ten 2))\
+
+\b0 \
+54.\'94But they can also be defined inline" (= __ ((fn [n] (* __ n)) 2))\
+
+\b (= 20 ((fn [n] (* 10 n)) 2))\
+
+\b0 \
+55. \'93Or using even shorter syntax" (= __ (#(* 15 %) __)
+\b )\
+(= 30 (#(* 15 %) 2))
+\b0 \
+\
+56."Short anonymous functions may take multiple arguments" (= __ (#(+ %1 %2 %3) 4 5 6))\
+
+\b (= 15 (#(+ %1 %2 %3) 4 5 6))
+\b0 \
+\
+57."One function can beget another"(= __ ((fn []\
+           ((fn [a b] (__ a b))\
+            4 5))))\
+
+\b (= 9 ((fn []\
+           ((fn [a b] ( + a b))\
+            4 5))))\
+
+\b0 \
+58.\'94Higher-order functions take function arguments"(= 25 (___\
+         (fn [n] (* n n))))\
+
+\b (= 25 ((fn [f] (f 5))\
+         (fn [n] (* n n)))
+\b0 \
+\
+59.\'94But they are often better written using the names of functions" (= 25 (___ square))\
+
+\b (= 25 ((fn[f] (f 5)) square))
+\b0 \
+\
+60.(defn explain-defcon-level [exercise-term]\
+  (case exercise-term\
+        :fade-out          :you-and-what-army\
+        :double-take       :call-me-when-its-important\
+        :round-house       :o-rly\
+        :fast-pace         :thats-pretty-bad\
+        :cocked-pistol     :sirens\
+        :say-what?))\
+
+\b \
+
+\b0 61.  "You will face many decisions" (= __ (if (false? (= 4 5))\
+          :a\
+          :b))\
+
+\b (= :a (if (false? (= 4 5))\
+          :a\
+          :b))
+\b0 \
+62. "Some of them leave you no alternative" (= __ (if (> 4 3)\
+          []))\
+
+\b  (= [](if (> 4 3)\
+          []))
+\b0 \
+63.\'94And in such a situation you may have nothing"(= __ (if (nil? 0)\
+          [:a :b :c]))\
+
+\b (= nil (if (nil? 0)\
+          [:a :b :c]))
+\b0 \
+64. \'93In others your alternative may be interesting" (= :glory (if (not (empty? ()))\
+              :doom\
+              __))
+\b \
+(= :glory (if (not (empty? ()))\
+              :doom\
+              :glory))\
+\
+
+\b0 65. "You may have a multitude of possible paths"\
+  (let [x 5]\
+    (= :your-road (cond (= x __) :road-not-taken\
+                        (= x __) :another-road-not-taken\
+                        :else __)))\
+
+\b (let [x 5]\
+    (= :your-road (cond (= x 1) :road-not-taken\
+                        (= x 2) :another-road-not-taken\
+                        :else :your-road)))
+\b0 \
+\
+66. "Or your fate may be sealed"(= __ (if-not (zero? __)\
+          'doom\
+          'doom))\
+
+\b (= 'doom (if-not (zero? 0)\
+          'doom\
+          'doom))
+\b0 \
+\
+67. \'93In case of emergency, sound the alarms" (= :sirens\
+     (explain-defcon-level __))\
+
+\b (= :sirens\
+     (explain-defcon-level :cocked-pistol))\
+\
+
+\b0 68. \'93But admit it when you don't know what to do"\
+  (= __\
+     (explain-defcon-level :yo-mama))\
+
+\b (= :say-what?\
+     (explain-defcon-level :yo-mama))\
+
+\b0 \
+69.\'94The map function relates a sequence to another" (= [__ __ __] (map (fn [x] (* 4 x)) [1 2 3]))
+\b \
+(= [4 8 12] (map (fn [x] (* 4 x)) [1 2 3]))\
+\
+
+\b0 70. "You may create that mapping\'94 (= [1 4 9 16 25] (map (fn [x] __) [1 2 3 4 5]))\
+
+\b  (= [1 4 9 16 25] (map (fn [x] (* x x)) [1 2 3 4 5]))
+\b0 \
+\
+71. "Or use the names of existing functions" (= __ (map nil? [:a :b nil :c :d]))\
+
+\b   (= [false false true false false] (map nil? [:a :b nil :c :d]))
+\b0 \
+\
+72.  "A filter can be strong" (= __ (filter (fn [x] false) '(:anything :goes :here)))\
+
+\b (= '() (filter (fn [x] false) '(:anything :goes :here)))
+\b0 \
+\
+73. "Or very weak" (= __ (filter (fn [x] true) '(:anything :goes :here)))\
+
+\b   (= '(:anything :goes :here) (filter (fn [x] true) '(:anything :goes :here)))
+\b0 \
+\
+74.  "Or somewhere in between" (= [10 20 30] (filter (fn [x] __) [10 20 30 40 50 60 70 80]))\
+
+\b (= [10 20 30] (filter (fn [x] (< x 40)) [10 20 30 40 50 60 70 80]))
+\b0 \
+\
+75.  "Maps and filters may be combined" (= [10 20 30] (map (fn [x] __) (filter (fn [x] __) [1 2 3 4 5 6 7 8])))\
+  
+\b (= [10 20 30] (map (fn [x] (* x 10)) (filter (fn [x] (< x 4)) [1 2 3 4 5 6 7 8])))
+\b0 \
+\
+76."Reducing can increase the result" (= __ (reduce (fn [a b] (* a b)) [1 2 3 4]))\
+  
+\b  (= 24 (reduce (fn [a b] (* a b)) [1 2 3 4]))\
+
+\b0 \
+77. \'93You can start somewhere else" (= 2400 (reduce (fn [a b] (* a b)) __ [1 2 3 4]))\
+
+\b (= 2400 (reduce (fn [a b] (* a b)) 100 [1 2 3 4])
+\b0 \
+\
+78. \'94Numbers are not the only things one can reduce" (= "longest" (reduce (fn [a b]\
+                         (if (< __ __) b a))\
+                       ["which" "word" "is" "longest"]))\
+
+\b (= "longest" (reduce (fn [a b]\
+                         (if (< ( count a)(count b)) b a))\
+                       ["which" "word" "is" "longest"]))\
+\
+
+\b0   \
+\
+
+\b \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}

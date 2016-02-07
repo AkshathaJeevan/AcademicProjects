@@ -1,0 +1,79 @@
+;;sdsu-rotate which can rotate a sequence in either direction.
+
+(defn sdsu-rotate[n seq]
+  (let [n (mod n (count seq))]
+    (concat (drop n seq) (take n seq))))
+
+(sdsu-rotate 2[ 1 2 3 4 5])
+(sdsu-rotate -2[ 1 2 3 4 5])
+(sdsu-rotate 6[ 1 2 3 4 5])
+
+;;Sdsu-sum returns the sum of the multiples of the two numbers less than the third argument
+(defn sdsu-sum [m n o] 
+	(reduce + (filter #(or (zero? (rem % m))
+          (zero? (rem % n)))
+              (range o))))
+
+(sdsu-sum 2 5 10)
+
+;;sdsu-palindrome returns the largest palindromic integer made from the product of two 2-digit numbers and  3-digits numbers.
+
+(defn pal? [s] 
+	(= s (reverse s)))
+(defn pal-num? [n]
+	(pal? (seq (str n))))
+(defn sdsu-palindrome[a]
+(if(= a 2) (reduce max(filter pal-num?
+	(for [i (range 10 99) j (range i 100)] (* i j))))
+		(if(= a 3) (reduce max(filter pal-num?
+			(for [i (range 100 999) j (range i 1000)] (* i j)))))))
+
+
+;;sdsu-fibonacci-even returns the sum of all the even-valued terms in the Fibonacci sequence that are less then or equal to N.
+
+(defn sdsu-fibonacci-even[n]
+  (reduce +
+    (take-while #(< % n)
+      (take-nth 3
+        (map first (iterate (fn [[a b]] [b (+ a b)]) [0 1]))))))
+
+;;sdsu-dna-count returns a map that indicate the num- ber of times each of the four characters appears in the DNA string.
+
+(defn sdsu-dna-count[seq]
+  (frequencies (map (comp keyword str) seq)))
+
+(sdsu-dna-count "ATGCTTC")
+(sdsu-dna-count "ATGCTTCAGAAAGGTCTTACG”)
+
+;;Sdsu-digits converts the first number from base 10 to base b
+
+(defn sdsu-digits [n b]
+  (let [a (if (zero? n) 0 (int (/ (Math/log n) (Math/log b))))]
+       (first (reduce (fn [[v r] i] 
+            (let [bi (apply * (repeat i b))]
+                 [(conj v (quot r bi)) (rem r bi)]))
+                      [[] n] (range a -1 -1)))))
+
+(sdsu-digits 12348012 10)
+(sdsu-digits 0 9)
+(sdsu-digits 140 8)
+(sdsu-digits 110 16) 
+
+;;sdsu-roman-numeral returns the corresponding roman numeral in uppercase.
+(defn sdsu-roman-numeral [n]
+  (let [r (sorted-map-by > 1000 "M" 900 "CM" 500 "D" 400 "CD" 100 "C"
+     90 "XC" 50 "L" 40 "XL" 10 "X" 9 "IX" 5 "V" 4 "IV" 1 "I")       
+       m (some #(when (>= (- n %) 0) %) (keys r))]
+	(when-not (nil? m)
+    	(str (r m) (sdsu-roman-numeral (- n m))))))
+
+
+(sdsu-roman-numeral 1)
+(sdsu-roman-numeral 30)
+(sdsu-roman-numeral 4)
+(sdsu-roman-numeral 9)
+(sdsu-roman-numeral 40)
+(sdsu-roman-numeral 90)
+(sdsu-roman-numeral 400)
+(sdsu-roman-numeral 900)
+(sdsu-roman-numeral 1904)
