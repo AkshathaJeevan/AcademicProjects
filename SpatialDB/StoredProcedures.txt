@@ -1,0 +1,135 @@
+CREATE or REPLACE TYPE BODY city_details as
+MEMBER FUNCTION Longitude_City
+RETURN VARCHAR is
+hemi char(2);
+BEGIN
+	
+	if (longitude < 0)
+         then  hemi:='E ';
+         else  hemi:='W ';
+         end if;
+        return hemi || longitude;
+    end;
+end;
+/ 
+show errors;
+
+SQL> CREATE OR REPLACE TYPE city_details AS OBJECT ( 
+name VARCHAR2(25), 
+latitude NUMBER(8,2),
+longitude NUMBER(8,2),
+member function Longitude_City return VARCHAR,
+pragma restrict_references(Longitude_City,WNDS));
+
+2 /
+
+Type created.
+
+SQL> CREATE TYPE Treasure_type as OBJECT(t_name VARCHAR2(25), t_property VARCHAR2(25));
+
+2 /
+Type created.
+
+SQL> CREATE TYPE Treasure_array as VARRAY(5) OF	Treasure_type;
+
+2 /
+
+Type created.
+
+SQL> Create Table Museum(Country_Name VARCHAR2(25),
+Category Varchar2(25),
+WebLink Varchar2(4000),
+Treasures Treasure_Array,
+CityDetails city_details,
+PRIMARY Key(Country_NAME));
+
+insert into Museums Values('Japan','Art','http://www.tnm.jp/?lang=en',
+Treasure_array(
+Treasure_type('Colorful Realm','Ito Jakuchu'),
+Treasure_Type('Kanjo-ban','Asuka period'),
+Treasure_type('Bronze Buddhist Statues','Asuka period'),
+Treasure_type('The Dawn of Japanese Art','Jomon'),
+Treasure_type('Heian','Muromachi period ')),
+City_Details('Tokyo',35.6895,139.6917));
+
+insert into Museums Values ('Taiwan','Art', 'http://www.npm.gov.tw/en/',
+Treasure_array(
+Treasure_type( 'A Palace Concert','Tang dynasty'),
+Treasure_Type('Early Spring','Song Dynasty'),
+Treasure_type('Lohan','Liu Sung-nien'),
+Treasure_type('Twin Pines',' Wu Chen '),
+Treasure_type('The Red Cliff',' Wu Yüan-chih ')),
+City_Details('Tokyo',23.5,121.0));
+
+insert into Museums Values ('Italy','Art', 'www.uffizi.org/',
+Treasure_array(
+Treasure_type('The Ognissanti Madonna ','Giotto'),
+Treasure_Type('Annunciation','Simone Martini'),
+Treasure_type('The Battle of San Romano','Paolo Uccello'),
+Treasure_type('Venus of Urbino','Titian'),
+Treasure_type('Bacchus','Caravaggio')),
+City_Details('Florence',43.7686,11.2552));
+
+insert into Museums Values ('England','History & Culture', 'www.britishmuseum.org',
+Treasure_array(
+Treasure_type('The Rillaton gold cup','Bodmin Moor'),
+Treasure_Type('The Mold gold cape','Bryn yr Ellyllon'),
+Treasure_type('The Hoxne Hoard','Eric Lawes'),
+Treasure_type('The Fishpool hoard','king Edward IV'),
+Treasure_type('The Snettisham Hoard','Snettisham')),
+City_Details('London',51.5195,-0.1269));
+
+insert into Museums Values ('France','History & Art', 'www.louvre.fr/en',
+Treasure_array(
+Treasure_type('Gold Coffee Grinder','Jean'),
+Treasure_Type('Miniature painting','Laurent Tessier Montarsy'),
+Treasure_type('Season Sarcophagus','Young Endowment'),
+Treasure_type('Art of the Photo Finish','Wreath Greek'),
+Treasure_type('Crown Point Press','Marcia Bartholme')),
+City_Details('Paris',48.8611,2.3364));
+
+insert into Museums Values ('USA','History & Art', 'www.brooklynmuseum.org',
+Treasure_array(
+Treasure_type('Double Bell','Edo'),
+Treasure_Type('Deborah Hall','William Williams'),
+Treasure_type('Georgia Keeffe','Judy Chicago'),
+Treasure_type('Saint James Major','Carlo Crivelli'),
+Treasure_type('Cartonnage','Thebes Egypt')),
+City_Details('Brooklyn',40.6928,-73.9903));
+
+insert into Museums Values ('India','History & Art', 'http://www.nationalmuseumindia.gov.in',
+Treasure_array(
+Treasure_type('Laila faints ','Khamsa of Nizam'),
+Treasure_Type('Disguised Akbar & Tansen','Kishangarh'),
+Treasure_type('Mother Mary ','Muhammad Shah '),
+Treasure_type('Ladies Hunting Tigers','Kotah'),
+Treasure_type('Holy family','Garhwal')),
+City_Details('Delhi',28.6118,77.2193));
+
+insert into Museums Values ('Canada','History & Art', 'http://www.historymuseum.ca/',
+Treasure_array(
+Treasure_type('Morning Star ','Gambeh Then'),
+Treasure_Type('Heart and Soul','Quebec Folk Art'),
+Treasure_type('Making of musical','Carmelle Bégin'),
+Treasure_type('Ritual Messengers','Building Works '),
+Treasure_type('French bébé style','Gebrüder Kuhnlenz')),
+City_Details('Hull',53.7443,-0.3325));
+
+insert into Museums Values ('Russia','History & Art', 'http://tmora.org/',
+Treasure_array(
+Treasure_type('The Forest’s Bounty','Alexander Viazmensky'),
+Treasure_Type('Porcelain Easter Eggs','Raymond Piper'),
+Treasure_type('Imperial St.Petersburg','William C.Brumfield'),
+Treasure_type('Transcendent Art','Yaroslavl'),
+Treasure_type('Minnesota',' Katia Andreeva ')),
+City_Details('Minneapolis',59.57,30.18));
+
+insert into Museums Values ('Greece','History', 'www.abbathemuseum.com',
+Treasure_array(
+Treasure_type('Propylaia','Alkamenes'),
+Treasure_Type('metopes','Pheidias'),
+Treasure_type('Hekatompedon','neos'),
+Treasure_type('Sacred Rock','Athena Polias '),
+Treasure_type('Peisistratos','Acropolis')),
+City_Details('Athens',37.9667,23.716));
+
